@@ -16,11 +16,8 @@ UT EID 1: vd6965
 UT EID 2:
 """
 
-# the constant used to calculate the step size
 STEP_SIZE_CONSTANT = 3
 
-
-# DO NOT modify this function.
 def is_prime(n):
     """
     Determines if a number is prime.
@@ -40,7 +37,6 @@ def is_prime(n):
     return True
 
 
-# DO NOT modify this function.
 def hash_word(s, size):
     """
     Hashes a lowercase string to an index in a hash table.
@@ -56,11 +52,9 @@ def hash_word(s, size):
     return hash_idx
 
 
-# TODO: Modify this function. You may delete this comment when you are done.
 def step_size(s):
     """
     Calculates step size for double hashing using STEP_SIZE_CONSTANT.
-
     pre: s is a lowercase string.
     post: Returns the calculated step size as an integer based on the provided string.
     """
@@ -97,7 +91,6 @@ def insert_word(s, hash_table):
 
 
 
-# TODO: Modify this function. You may delete this comment when you are done.
 def find_word(s, hash_table):
     """
     Searches for a string in the hash table.
@@ -120,7 +113,6 @@ def find_word(s, hash_table):
 
 
 
-# TODO: Modify this function. You may delete this comment when you are done.
 def is_reducible(s, hash_table, hash_memo):
     """
     Determines if a string is reducible using a recursive check.
@@ -153,13 +145,6 @@ def is_reducible(s, hash_table, hash_memo):
         
     
 
-    
-    
-
-
-
-
-# TODO: Modify this function. You may delete this comment when you are done.
 def get_longest_words(string_list):
     """
     Finds longest words from a list.
@@ -179,12 +164,10 @@ def get_longest_words(string_list):
 
 
 
-
-
-# TODO: Modify this function. You may delete this comment when you are done.
 def main():
     """The main function that calculates the longest reducible words"""
-    word = input().strip()
+    import sys
+    word = sys.stdin.read().strip()
     word_list_len = len(word)
 
     N = word_list_len * 2
