@@ -2,7 +2,7 @@
 Student information for this assignment:
 
 Replace <FULL NAME> with your name.
-On my/our honor, <VINAY DEVARAKONDA> and <FULL NAME>, this
+On my/our honor, <VINAY DEVARAKONDA> and <CESAR DAO CORADO>, this
 programming assignment is my own work and I have not provided this code to
 any other student.
 
@@ -13,9 +13,11 @@ code to someone else), the case shall be submitted to the Office of the Dean of
 Students. Academic penalties up to and including an F in the course are likely.
 
 UT EID 1: vd6965
-UT EID 2:
+UT EID 2: cad4837
 """
 
+
+import sys
 STEP_SIZE_CONSTANT = 3
 
 def is_prime(n):
@@ -64,7 +66,6 @@ def step_size(s):
 
 
 
-# TODO: Modify this function. You may delete this comment when you are done.
 def insert_word(s, hash_table):
     """
     Inserts a string into the hash table using double hashing for collision resolution.
@@ -163,25 +164,23 @@ def get_longest_words(string_list):
     return max_words_list
 
 
-
 def main():
     """The main function that calculates the longest reducible words"""
-    import sys
-    word = sys.stdin.read().strip()
-    word_list_len = len(word)
+    strings = sys.stdin.read().split()
+    word_list_len = len(strings)
 
-    N = word_list_len * 2
-    while not is_prime(N):
-        N += 1
-    hash_list = [""] * N
-    for word in word:
+    n = word_list_len * 2
+    while not is_prime(n):
+        n += 1
+    hash_list = [""] * n
+    for word in strings:
         insert_word(word, hash_list)
-    M = word_list_len * 0.2
-    while not is_prime(M):
-        M += 1
-    hash_memo = [""] * M
+    m = word_list_len * 0.2
+    while not is_prime(m):
+        m += 1
+    hash_memo = [""] * m
     reducible_words = []
-    for word in word:
+    for word in strings:
         if is_reducible(word, hash_list, hash_memo):
             reducible_words.append(word)
     long_red_word = get_longest_words(reducible_words)
