@@ -175,8 +175,7 @@ def main():
         if is_reducible(word, hash_list, hash_memo):
             reducible_words.append(word)
     long_red_word = get_longest_words(reducible_words)
-    long_red_word.sort()
-    for word in long_red_word:
+    for word in sorted(long_red_word):
         print(word)
 
 if __name__ == "__main__":
