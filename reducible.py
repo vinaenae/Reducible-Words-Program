@@ -82,14 +82,6 @@ def insert_word(s, hash_table):
 
     hash_table[next_index] = s
 
-    # if hash_table[individual_step_size] is not None:
-    #     hash_table[individual_step_size] = hash_word(s, len(hash_table))
-    # else:
-    #     for i in range(len(hash_table)):
-    #         next_index = (i + individual_step_size) % len(hash_table)
-    #         if hash_table[next_index] is not None:
-    #             hash_table[next_index] = hash_word(s, len(hash_table))
-
 
 
 def find_word(s, hash_table):
@@ -166,7 +158,9 @@ def get_longest_words(string_list):
 
 def main():
     """The main function that calculates the longest reducible words"""
-    strings = sys.stdin.read().split()
+    strings = []
+    for line in sys.stdin:
+        strings.append(line.strip())
     word_list_len = len(strings)
 
     n = word_list_len * 2
@@ -175,7 +169,8 @@ def main():
     hash_list = [""] * n
     for word in strings:
         insert_word(word, hash_list)
-    m = word_list_len * 0.2
+
+    m = int(word_list_len * 0.2)
     while not is_prime(m):
         m += 1
     hash_memo = [""] * m
@@ -184,7 +179,8 @@ def main():
         if is_reducible(word, hash_list, hash_memo):
             reducible_words.append(word)
     long_red_word = get_longest_words(reducible_words)
-    for word in long_red_word.sort():
+    long_red_word.sort()
+    for word in long_red_word:
         print(word)
 
 if __name__ == "__main__":
