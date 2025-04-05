@@ -60,7 +60,6 @@ def step_size(s):
     pre: s is a lowercase string.
     post: Returns the calculated step size as an integer based on the provided string.
     """
-    
     return STEP_SIZE_CONSTANT - hash_word(s, STEP_SIZE_CONSTANT)
 
 
@@ -128,15 +127,12 @@ def is_reducible(s, hash_table, hash_memo):
             return False
     if not ('a' in s or 'i' in s or 'o' in s):
         return False
-    
     for i, _ in enumerate(s):
         temporary_remove = s[:i] + s[i+1:]
         if is_reducible(temporary_remove, hash_table, hash_memo):
             insert_word(s, hash_memo)
             return True
     return False
-        
-    
 
 def get_longest_words(string_list):
     """
